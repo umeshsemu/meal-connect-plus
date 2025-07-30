@@ -107,7 +107,7 @@ const Index = () => {
                           <span className="text-2xl">{item.image}</span>
                           <div>
                             <p className="font-medium">{item.item}</p>
-                            <p className="text-sm text-muted-foreground">${item.price}</p>
+                            <p className="text-sm text-muted-foreground">₹{item.price}</p>
                           </div>
                         </div>
                         <div className="space-y-2">
@@ -128,10 +128,6 @@ const Index = () => {
                             >
                               <Plus className="h-3 w-3" />
                             </Button>
-                          </div>
-                          <div className="flex items-center gap-2 text-sm">
-                            <span className="text-muted-foreground">Cutlery:</span>
-                            <span>{item.quantity} sets</span>
                           </div>
                         </div>
                       </div>
@@ -164,6 +160,15 @@ const Index = () => {
                   />
                 </div>
                 <div>
+                  <label className="block text-sm font-medium mb-2">Cutlery Sets</label>
+                  <input
+                    type="number"
+                    min="0"
+                    placeholder="Number of cutlery sets needed"
+                    className="w-full p-2 border rounded-md"
+                  />
+                </div>
+                <div>
                   <label className="block text-sm font-medium mb-2">Serving Executives</label>
                   <select className="w-full p-2 border rounded-md">
                     <option value="none">No serving executives needed</option>
@@ -188,25 +193,25 @@ const Index = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Subtotal</span>
-                    <span>${totalAmount.toFixed(2)}</span>
+                    <span>₹{totalAmount.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Delivery Fee</span>
-                    <span>$3.99</span>
+                    <span>₹59</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Coordination Fee</span>
-                    <span>$2.00</span>
+                    <span>₹29</span>
                   </div>
                   <Separator />
                   <div className="flex justify-between font-semibold text-lg">
                     <span>Total</span>
-                    <span>${(totalAmount + 3.99 + 2.00).toFixed(2)}</span>
+                    <span>₹{(totalAmount + 59 + 29).toFixed(2)}</span>
                   </div>
                 </div>
                 
                 <Button className="w-full" size="lg">
-                  Place Multi-Restaurant Order
+                  Place Order
                 </Button>
                 
                 <p className="text-xs text-muted-foreground text-center">
