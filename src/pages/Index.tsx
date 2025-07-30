@@ -12,7 +12,7 @@ const mockCartItems = [
     restaurant: "Pizza Palace",
     restaurantId: "rest1",
     item: "Margherita Pizza",
-    price: 12.99,
+    price: 120.99,
     quantity: 2,
     image: "🍕"
   },
@@ -21,7 +21,7 @@ const mockCartItems = [
     restaurant: "Burger Bistro", 
     restaurantId: "rest2",
     item: "Classic Cheeseburger",
-    price: 8.99,
+    price: 118.99,
     quantity: 1,
     image: "🍔"
   },
@@ -30,7 +30,7 @@ const mockCartItems = [
     restaurant: "Pizza Palace",
     restaurantId: "rest1", 
     item: "Garlic Bread",
-    price: 4.99,
+    price: 84.99,
     quantity: 3,
     image: "🥖"
   },
@@ -39,7 +39,7 @@ const mockCartItems = [
     restaurant: "Sushi Spot",
     restaurantId: "rest3",
     item: "California Roll",
-    price: 9.99,
+    price: 299.99,
     quantity: 2,
     image: "🍣"
   }
