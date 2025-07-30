@@ -49,7 +49,7 @@ const Index = () => {
   const [cartItems, setCartItems] = useState(mockCartItems);
   const [scheduledTime, setScheduledTime] = useState("2024-01-15T18:00");
 
-  const updateQuantity = (id: number, change: number) => {
+  const updateServes = (id: number, change: number) => {
     setCartItems(items => 
       items.map(item => 
         item.id === id 
@@ -76,7 +76,7 @@ const Index = () => {
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold">Multi-Restaurant Cart</h1>
+          <h1 className="text-3xl font-bold">Swiggy Caterers</h1>
           <p className="text-muted-foreground">Order from multiple restaurants, delivered together</p>
         </div>
 
@@ -110,22 +110,29 @@ const Index = () => {
                             <p className="text-sm text-muted-foreground">${item.price}</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            onClick={() => updateQuantity(item.id, -1)}
-                          >
-                            <Minus className="h-3 w-3" />
-                          </Button>
-                          <span className="w-8 text-center">{item.quantity}</span>
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            onClick={() => updateQuantity(item.id, 1)}
-                          >
-                            <Plus className="h-3 w-3" />
-                          </Button>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm text-muted-foreground">Serves:</span>
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => updateServes(item.id, -1)}
+                            >
+                              <Minus className="h-3 w-3" />
+                            </Button>
+                            <span className="w-8 text-center">{item.quantity}</span>
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => updateServes(item.id, 1)}
+                            >
+                              <Plus className="h-3 w-3" />
+                            </Button>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <span className="text-muted-foreground">Cutlery:</span>
+                            <span>{item.quantity} sets</span>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -155,6 +162,15 @@ const Index = () => {
                     onChange={(e) => setScheduledTime(e.target.value)}
                     className="w-full p-2 border rounded-md"
                   />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Serving Executives</label>
+                  <select className="w-full p-2 border rounded-md">
+                    <option value="none">No serving executives needed</option>
+                    <option value="1">1 serving executive</option>
+                    <option value="2">2 serving executives</option>
+                    <option value="3">3+ serving executives</option>
+                  </select>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Clock className="h-4 w-4" />
